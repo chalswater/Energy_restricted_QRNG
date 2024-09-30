@@ -3,11 +3,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri May 17 09:45:37 2024
-
-@author: carles
+@author: Carles Roch i Carceller
 """
 
+# The main code begins around line 940
+# above that, it's only defining functions 
+
+''' Dependencies '''
 import numpy as np
 import cvxpy as cp
 from cvxpy import *
@@ -24,12 +26,15 @@ from MoMPy.MoM import *
 
 import warnings
 warnings.filterwarnings("ignore")
+''' ------------------------------'''
 
+'''
 #------------------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------------------#
 #                                        Functions                                         #
 #------------------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------------------#
+'''
 
 def deltaF(x,xx):
 
@@ -933,11 +938,13 @@ def Min_Entropy(nX,nB,nK,pbxy,omega,monomials,gamma_matrix_els,nXstar,nYstar,W,a
     else:
         return None
 
+'''
 #------------------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------------------#
 #                                        MAIN CODE                                         #
 #------------------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------------------#
+'''
 
 nX = 2 # number of state preparations
 nY = 1 # number of measurement settings
