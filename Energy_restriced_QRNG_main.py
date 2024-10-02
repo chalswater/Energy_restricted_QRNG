@@ -276,14 +276,12 @@ def max_witness(nX,nB,nK,omega,monomials,gamma_matrix_els,Q,eps,n_trunc,type_cts
     ct += [G >> 0.0]
             
     # Some specific constraints in each corr matrix  -- G
-        
     # Localising matrices
     ct += [ g_loc[fmap(map_table,[w_R[x],w_R[x]])] << g_loc[fmap(map_table,[w_R[x]])] for x in range(nX) ]#for xx in range(nX) ]
 
     # Rank-1 projectors
     ct += [ G_var_vec[fmap(map_table,[w_R[x]])] == 1.0 for x in range(nX)]
     ct += [ G_var_vec[fmap(map_table,[w_P[k]])] == 1.0 for k in range(nK)]
-    ct += [ G_var_vec[fmap(map_table,[w_B[y][b]])] == 1.0 for b in range(nB) for y in range(nY)]
    
     # Photon number avg constraint
     if type_cts == 'avg_energy': # (n_trunc+1 because n_trunc = 2 means levels 0, 1 and 2, but python thinks 0 and 1)
@@ -612,7 +610,6 @@ def Shannon_Entropy(nX,nB,nK,m,t,w,pbxy,omega,monomials,gamma_matrix_els,nXstar,
         # Rank-1 projectors
         ct += [ G_var_vec[fmap(map_table,[w_R[x]])] == 1.0 for x in range(nX)]
         ct += [ G_var_vec[fmap(map_table,[w_P[k]])] == 1.0 for k in range(nK)]
-      #  ct += [ G_var_vec[fmap(map_table,[w_B[y][b]])] == 1.0 for b in range(nB) for y in range(nY)]
         
         for o in range(nB):
             for s in range(nXstar):
@@ -633,16 +630,12 @@ def Shannon_Entropy(nX,nB,nK,m,t,w,pbxy,omega,monomials,gamma_matrix_els,nXstar,
                     # Rank-1 projectors
                     ct += [ zG_var_vec[o][s][u][fmap(map_table,[w_R[x]])] == z_var[o][s][u] for x in range(nX)]
                     ct += [ zG_var_vec[o][s][u][fmap(map_table,[w_P[k]])] == z_var[o][s][u] for k in range(nK)]
-                    #ct += [ zG_var_vec[o][s][u][fmap(map_table,[w_B[y][b]])] == z_var[o][s][u] for b in range(nB) for y in range(nY)]
-                    #ct += [ zG_var_vec[o][s][u][fmap(map_table,[w_B[y][b]])] == zG_var_vec[o][s][u][fmap(map_table,[w_B[np.mod(y+1,nY)][np.mod(b+1,nB)]])] for b in range(nB) for y in range(nY)]
                     
                     # Some specific constraints in each corr matrix  -- h * G
                     # Rank-1 projectors
                     ct += [ hG_var_vec[o][s][u][fmap(map_table,[w_R[x]])] == h_var[o][s][u] for x in range(nX)]
                     ct += [ hG_var_vec[o][s][u][fmap(map_table,[w_P[k]])] == h_var[o][s][u] for k in range(nK)]
-                    #ct += [ hG_var_vec[o][s][u][fmap(map_table,[w_B[y][b]])] == h_var[o][s][u] for b in range(nB) for y in range(nY)]
-                    #ct += [ hG_var_vec[o][s][u][fmap(map_table,[w_B[y][b]])] == hG_var_vec[o][s][u][fmap(map_table,[w_B[np.mod(y+1,nY)][np.mod(b+1,nB)]])] for b in range(nB) for y in range(nY)]
-   
+                    
         # Photon number avg constraint
         if type_cts == 'avg_energy': # (n_trunc+1 because n_trunc = 2 means levels 0, 1 and 2, but python thinks 0 and 1)
             ct += [ sum ([ k*G_var_vec[fmap(map_table,[w_R[x],w_P[k]])] for k in range(n_trunc+1) ]) <= np.abs(amp[x])**2.0 for x in range(nX) ]
@@ -694,7 +687,6 @@ def Shannon_Entropy(nX,nB,nK,m,t,w,pbxy,omega,monomials,gamma_matrix_els,nXstar,
             
         if H.value != None:
             H_out += H.value
-            #print('Hvalue',H.value)
         else:
             H_out = None
             break
@@ -887,7 +879,6 @@ def Min_Entropy(nX,nB,nK,pbxy,omega,monomials,gamma_matrix_els,nXstar,nYstar,W,a
         # Rank-1 projectors
         ct += [ G_var_vec[l][fmap(map_table,[w_R[x]])] == q[l] for x in range(nX)]
         ct += [ G_var_vec[l][fmap(map_table,[w_P[k]])] == q[l] for k in range(nK)]
-       # ct += [ G_var_vec[l][fmap(map_table,[w_B[y][b]])] == q[l] for b in range(nB) for y in range(nY)]
         
     # Big localising matrix
     if 'R' in elms and 'RR' in elms:
@@ -1005,7 +996,7 @@ for k in range(nK):
     cc += 1
 
 # Additional higher order elements
-S_high = [] # Uncomment if we only allow up to some 2nd order elements in the hierarchy  
+S_high = []
 
 # Second order elements
 some_second = False
@@ -1018,16 +1009,11 @@ if some_second == True:
         for b in range(nB):
             for y in range(nY):
                 S_high += [[w_R[x],w_B[y][b]]]
-                #S_high += [[w_B[y][b],w_R[x]]]
             
     for k in range(nK):
         for b in range(nB):
             for y in range(nY):
                 S_high += [[w_P[k],w_B[y][b]]]
-            
-    #for x in range(nX):
-    #    for k in range(nK):
-    #          S_high += [[w_P[k],w_R[x]]]
 
 some_third = True
 if some_third == True:
@@ -1035,28 +1021,17 @@ if some_third == True:
         for xx in range(nX):
             for xxx in range(nX):
                 S_high += [[w_R[x],w_R[xx],w_R[xxx]]]
-            
-    #for x in range(nX):
-    #    for b in range(nB):
-    #        for y in range(nY):
-    #            for xx in range(nX):
-    #                S_high += [[w_R[x],w_B[y][b],w_R[xx]]]
 
-            
     for k in range(nK):
         for b in range(nB):
             for y in range(nY):
                 for x in range(nX):
                     S_high += [[w_P[k],w_B[y][b],w_R[x]]]
-                    #S_high += [[w_B[y][b],w_P[k],w_R[x]]]
-
-
-#S_high = []
 
 # Set the operational rules within the SDP relaxation
 list_states = [] # operators that do not commute with anything (not important here)
 
-rank_1_projectors = []#w_R
+rank_1_projectors = []
 rank_1_projectors += [w_B[y][b] for y in range(nY) for b in range(nB)]
 rank_1_projectors += [w_P[k] for k in range(nK)]
 
@@ -1064,7 +1039,7 @@ orthogonal_projectors = []
 orthogonal_projectors += [ w_B[y] for y in range(nY)]
 orthogonal_projectors += [ w_P ] 
 
-commuting_variables = [] # commuting elements (wxcept with elements in "list_states"
+commuting_variables = [] # commuting elements (wxcept with elements in "list_states")
 
 print('Rank-1 projectors',rank_1_projectors)
 print('Orthogonal projectors',orthogonal_projectors)
@@ -1083,7 +1058,7 @@ gamma_matrix_els = [G_new,map_table,S,list_of_eq_indices,Mexp]
 
 for jj in range(N):
 
-    eta = 1.0#-vec[jj]# Efficiency (1 - Photon loss)
+    eta = 1.0 # Efficiency (1 - photon loss)
 
     alpha = np.sqrt(vec[jj]) # Coherent state amplitude
     
@@ -1097,15 +1072,10 @@ for jj in range(N):
     for k in range(nK):
         for x in range(nX):
             omega[k][x] = p_alpha_nphotons(amp[x],k) # Probability of finding k photons in state x
-    
-    # Full distribution of observed probabilities
-    #pbxy = np.zeros((nB,nX,nY)) 
-    #for x in range(nX):
-    #    for b in range(nB):
-    #        pbxy[b][x][0] = p_alpha_hetero_polar(np.sqrt(eta)*amp[x],theta0_vec[b],thetaf_vec[b])
 
-    eps = [1.0-sum([p_alpha_nphotons(np.sqrt(eta)*amp[x],k) for k in range(nK)]) for x in range(nX)]
-    #eps = [0.0 for x in range(nX)]
+    # For avg_energy constraints, select the assumption on leaked info in higher energy levels
+    eps = [1.0-sum([p_alpha_nphotons(np.sqrt(eta)*amp[x],k) for k in range(nK)]) for x in range(nX)] # Poissonian
+    #eps = [0.0 for x in range(nX)] # No leakage
     
     # Witness (if rng is based on observed probabilities, write W = None)
     W = None#max_witness(nX,nB,nK,omega,monomials,gamma_matrix_els,0.0,eps,n_trunc,type_cts)
@@ -1128,7 +1098,6 @@ for jj in range(N):
     
     print(alpha**2.0)
     print(W,out_H,out_Hmin,'in',np.round(end-start,2),'seconds')
-    #print(W,out_H,'in',np.round(end-start,2),'seconds')
     
   #  np.savetxt('data_outputs/H_output.csv', H_vec, delimiter =", ", fmt ='% s') 
   #  np.savetxt('data_outputs/W_output.csv', W_vec, delimiter =", ", fmt ='% s') 
