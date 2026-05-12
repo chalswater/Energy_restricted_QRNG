@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sdi_qrng_chip_sim/simulation_summary.schema.json",
+  "title": "SDI QRNG chip simulation summary",
+  "type": "object",
+  "required": ["schema_version", "config", "summaries"],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object"
+    },
+    "summaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "strategy",
+          "num_blocks",
+          "block_size",
+          "raw_bits",
+          "emitted_bits",
+          "certified_bits",
+          "unsafe_emitted_bits",
+          "emitted_rate",
+          "certified_rate",
+          "unsafe_emitted_rate",
+          "stop_rate",
+          "unsafe_block_rate",
+          "seed_starved_rate",
+          "calibration_events",
+          "calibration_applied_events",
+          "mean_h_min",
+          "mean_omega_high"
+        ],
+        "properties": {
+          "strategy": { "type": "string" },
+          "num_blocks": { "type": "integer", "minimum": 0 },
+          "block_size": { "type": "integer", "minimum": 1 },
+          "raw_bits": { "type": "integer", "minimum": 0 },
+          "emitted_bits": { "type": "integer", "minimum": 0 },
+          "certified_bits": { "type": "integer", "minimum": 0 },
+          "unsafe_emitted_bits": { "type": "integer", "minimum": 0 },
+          "stop_blocked_bits": { "type": "integer", "minimum": 0 },
+          "seed_consumed_bits": { "type": "integer", "minimum": 0 },
+          "seed_refreshed_bits": { "type": "integer", "minimum": 0 },
+          "seed_final_pool_bits": { "type": "integer" },
+          "emitted_rate": { "type": "number", "minimum": 0 },
+          "certified_rate": { "type": "number", "minimum": 0 },
+          "unsafe_emitted_rate": { "type": "number", "minimum": 0 },
+          "stop_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+          "unsafe_block_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+          "seed_starved_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+          "calibration_events": { "type": "integer", "minimum": 0 },
+          "calibration_applied_events": { "type": "integer", "minimum": 0 },
+          "mean_h_min": { "type": "number", "minimum": 0 },
+          "mean_omega_high": { "type": "number", "minimum": 0 },
+          "mean_temperature_c": { "type": "number" }
+        }
+      }
+    }
+  }
+}
+

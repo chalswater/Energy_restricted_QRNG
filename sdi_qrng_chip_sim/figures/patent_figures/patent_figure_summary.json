@@ -1,0 +1,403 @@
+{
+  "seeds": [
+    20260512,
+    20260529,
+    20260546,
+    20260563,
+    20260580,
+    20260597,
+    20260614,
+    20260631,
+    20260648,
+    20260665
+  ],
+  "figures": [
+    {
+      "figure": "/Users/sichen/Library/Mobile Documents/com~apple~CloudDocs/Business/Quantum_Device_Independent_server/QRNG/sdi_qrng_chip_sim/figures/patent_figures/patent_fig_1_drift_fixed_vs_dynamic.png",
+      "scenario": "drift_fixed_vs_dynamic",
+      "description": "\u5728\u5149\u6e90\u529f\u7387\u6f02\u79fb\u6761\u4ef6\u4e0b\uff0c\u56fa\u5b9a\u538b\u7f29\u7387\u6301\u7eed\u6309\u9884\u8bbe\u901f\u7387\u8f93\u51fa\uff0c\u800c\u52a8\u6001\u538b\u7f29\u7387\u968f\u8ba4\u8bc1\u71b5\u9010\u5757\u8c03\u6574\u8f93\u51fa\u957f\u5ea6\u3002",
+      "config": {
+        "num_blocks": 180,
+        "block_size": 8000,
+        "sigma_mu": 0.005,
+        "rho_mu": 0.998,
+        "fixed_extractor_rate": 0.025
+      },
+      "summaries": [
+        {
+          "strategy": "baseline_fixed_no_cal",
+          "num_blocks": 180,
+          "block_size": 8000,
+          "raw_bits": 1440000,
+          "emitted_bits": 36000,
+          "certified_bits": 9200,
+          "unsafe_emitted_bits": 26800,
+          "stop_blocked_bits": 0,
+          "seed_consumed_bits": 1475820,
+          "seed_refreshed_bits": 184,
+          "seed_final_pool_bits": 2524364,
+          "emitted_rate": 0.025,
+          "certified_rate": 0.006388888888888889,
+          "unsafe_emitted_rate": 0.01861111111111111,
+          "stop_rate": 0.0,
+          "unsafe_block_rate": 0.7444444444444445,
+          "seed_starved_rate": 0.0,
+          "calibration_events": 0,
+          "calibration_applied_events": 0,
+          "mean_h_min": 0.038514233600214845,
+          "mean_omega_high": 0.2170767006120012,
+          "mean_temperature_c": 24.96655074326186
+        },
+        {
+          "strategy": "dynamic_no_cal",
+          "num_blocks": 180,
+          "block_size": 8000,
+          "raw_bits": 1440000,
+          "emitted_bits": 29498,
+          "certified_bits": 29498,
+          "unsafe_emitted_bits": 0,
+          "stop_blocked_bits": 0,
+          "seed_consumed_bits": 1469318,
+          "seed_refreshed_bits": 499,
+          "seed_final_pool_bits": 2531181,
+          "emitted_rate": 0.020484722222222224,
+          "certified_rate": 0.020484722222222224,
+          "unsafe_emitted_rate": 0.0,
+          "stop_rate": 0.0,
+          "unsafe_block_rate": 0.0,
+          "seed_starved_rate": 0.0,
+          "calibration_events": 0,
+          "calibration_applied_events": 0,
+          "mean_h_min": 0.038514233600214845,
+          "mean_omega_high": 0.2170767006120012,
+          "mean_temperature_c": 24.96655074326186
+        }
+      ],
+      "replicate_stats": {
+        "baseline_fixed_no_cal": {
+          "certified_rate": {
+            "mean": 0.004819444444444444,
+            "std": 0.002537484753682565,
+            "ci95_half_width": 0.0015727493445192944
+          },
+          "stop_rate": {
+            "mean": 0.07888888888888888,
+            "std": 0.19603056786913273,
+            "ci95_half_width": 0.12150100475460521
+          },
+          "unsafe_block_rate": {
+            "mean": 0.8072222222222223,
+            "std": 0.10149939014730258,
+            "ci95_half_width": 0.06290997378077177
+          },
+          "unsafe_emitted_rate": {
+            "mean": 0.020180555555555556,
+            "std": 0.002537484753682565,
+            "ci95_half_width": 0.0015727493445192944
+          },
+          "mean_h_min": {
+            "mean": 0.03485498814240588,
+            "std": 0.008480116821036105,
+            "ci95_half_width": 0.005256030859840991
+          },
+          "mean_omega_high": {
+            "mean": 0.25380477202225343,
+            "std": 0.03877576003732171,
+            "ci95_half_width": 0.024033465065526154
+          }
+        },
+        "dynamic_no_cal": {
+          "certified_rate": {
+            "mean": 0.018175555555555556,
+            "std": 0.0052725230074439754,
+            "ci95_half_width": 0.0032679436169561205
+          },
+          "stop_rate": {
+            "mean": 0.07888888888888888,
+            "std": 0.19603056786913273,
+            "ci95_half_width": 0.12150100475460521
+          },
+          "unsafe_block_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "unsafe_emitted_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "mean_h_min": {
+            "mean": 0.03485498814240588,
+            "std": 0.008480116821036105,
+            "ci95_half_width": 0.005256030859840991
+          },
+          "mean_omega_high": {
+            "mean": 0.25380477202225343,
+            "std": 0.03877576003732171,
+            "ci95_half_width": 0.024033465065526154
+          }
+        }
+      }
+    },
+    {
+      "figure": "/Users/sichen/Library/Mobile Documents/com~apple~CloudDocs/Business/Quantum_Device_Independent_server/QRNG/sdi_qrng_chip_sim/figures/patent_figures/patent_fig_2_anomaly_event_calibration.png",
+      "scenario": "anomaly_event_calibration",
+      "description": "\u5f53\u7247\u4e0a\u76d1\u6d4b\u80fd\u91cf\u8d85\u8fc7\u5b89\u5168\u5305\u7edc\u65f6\uff0c\u4e8b\u4ef6\u89e6\u53d1\u81ea\u6821\u51c6\u964d\u4f4e omega_high\uff0c\u5e76\u6062\u590d\u8ba4\u8bc1\u968f\u673a\u6570\u8f93\u51fa\u3002",
+      "config": {
+        "num_blocks": 160,
+        "block_size": 8000,
+        "mu_initial": [
+          0.06,
+          0.34
+        ],
+        "sigma_mu": 0.004,
+        "omega_max": 0.3,
+        "mu_target": 0.25
+      },
+      "summaries": [
+        {
+          "strategy": "dynamic_no_cal",
+          "num_blocks": 160,
+          "block_size": 8000,
+          "raw_bits": 1280000,
+          "emitted_bits": 456,
+          "certified_bits": 456,
+          "unsafe_emitted_bits": 0,
+          "stop_blocked_bits": 0,
+          "seed_consumed_bits": 64448,
+          "seed_refreshed_bits": 6,
+          "seed_final_pool_bits": 3935558,
+          "emitted_rate": 0.00035625,
+          "certified_rate": 0.00035625,
+          "unsafe_emitted_rate": 0.0,
+          "stop_rate": 0.8625,
+          "unsafe_block_rate": 0.0,
+          "seed_starved_rate": 0.0,
+          "calibration_events": 0,
+          "calibration_applied_events": 0,
+          "mean_h_min": 0.0039061622602825294,
+          "mean_omega_high": 0.339913725021382,
+          "mean_temperature_c": 25.02313649111834
+        },
+        {
+          "strategy": "proposed_dynamic_event_cal",
+          "num_blocks": 160,
+          "block_size": 8000,
+          "raw_bits": 1280000,
+          "emitted_bits": 39588,
+          "certified_bits": 39588,
+          "unsafe_emitted_bits": 0,
+          "stop_blocked_bits": 0,
+          "seed_consumed_bits": 1231439,
+          "seed_refreshed_bits": 723,
+          "seed_final_pool_bits": 2769284,
+          "emitted_rate": 0.030928125,
+          "certified_rate": 0.030928125,
+          "unsafe_emitted_rate": 0.0,
+          "stop_rate": 0.05,
+          "unsafe_block_rate": 0.0,
+          "seed_starved_rate": 0.0,
+          "calibration_events": 26,
+          "calibration_applied_events": 26,
+          "mean_h_min": 0.048123271096724096,
+          "mean_omega_high": 0.2738255074208106,
+          "mean_temperature_c": 24.87784916116115
+        }
+      ],
+      "replicate_stats": {
+        "dynamic_no_cal": {
+          "certified_rate": {
+            "mean": 0.002703125,
+            "std": 0.004248079886924732,
+            "ci95_half_width": 0.0026329871925064078
+          },
+          "stop_rate": {
+            "mean": 0.8143750000000001,
+            "std": 0.22382117893284562,
+            "ci95_half_width": 0.13872580394632988
+          },
+          "unsafe_block_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "unsafe_emitted_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "mean_h_min": {
+            "mean": 0.006403804286760026,
+            "std": 0.00822583017746398,
+            "ci95_half_width": 0.005098422365280514
+          },
+          "mean_omega_high": {
+            "mean": 0.35151703198121564,
+            "std": 0.019114425230485677,
+            "ci95_half_width": 0.01184724349909144
+          }
+        },
+        "proposed_dynamic_event_cal": {
+          "certified_rate": {
+            "mean": 0.0215171875,
+            "std": 0.006394617063370783,
+            "ci95_half_width": 0.003963424718226474
+          },
+          "stop_rate": {
+            "mean": 0.079375,
+            "std": 0.054250736042113855,
+            "ci95_half_width": 0.03362495456419896
+          },
+          "unsafe_block_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "unsafe_emitted_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "mean_h_min": {
+            "mean": 0.03819215477774238,
+            "std": 0.007104644181246103,
+            "ci95_half_width": 0.004403504085248765
+          },
+          "mean_omega_high": {
+            "mean": 0.2897280952785577,
+            "std": 0.010213512537163145,
+            "ci95_half_width": 0.006330400655511653
+          }
+        }
+      }
+    },
+    {
+      "figure": "/Users/sichen/Library/Mobile Documents/com~apple~CloudDocs/Business/Quantum_Device_Independent_server/QRNG/sdi_qrng_chip_sim/figures/patent_figures/patent_fig_3_unsafe_block_safety.png",
+      "scenario": "unsafe_block_safety",
+      "description": "\u56fa\u5b9a\u538b\u7f29\u7387\u53ef\u80fd\u8f93\u51fa\u8d85\u8fc7\u71b5\u4e0b\u754c\u53ef\u8ba4\u8bc1\u7684\u6bd4\u7279\u6570\uff1b\u672c\u65b9\u6848\u901a\u8fc7\u52a8\u6001\u8f93\u51fa\u63a7\u5236\u907f\u514d unsafe block\u3002",
+      "config": {
+        "num_blocks": 180,
+        "block_size": 8000,
+        "sigma_mu": 0.004,
+        "fixed_extractor_rate": 0.03
+      },
+      "summaries": [
+        {
+          "strategy": "baseline_fixed_no_cal",
+          "num_blocks": 180,
+          "block_size": 8000,
+          "raw_bits": 1440000,
+          "emitted_bits": 43200,
+          "certified_bits": 480,
+          "unsafe_emitted_bits": 42720,
+          "stop_blocked_bits": 0,
+          "seed_consumed_bits": 1483020,
+          "seed_refreshed_bits": 8,
+          "seed_final_pool_bits": 2516988,
+          "emitted_rate": 0.03,
+          "certified_rate": 0.0003333333333333333,
+          "unsafe_emitted_rate": 0.029666666666666668,
+          "stop_rate": 0.08888888888888889,
+          "unsafe_block_rate": 0.9888888888888889,
+          "seed_starved_rate": 0.0,
+          "calibration_events": 0,
+          "calibration_applied_events": 0,
+          "mean_h_min": 0.032584450807913834,
+          "mean_omega_high": 0.2807746925213123,
+          "mean_temperature_c": 24.91034673547093
+        },
+        {
+          "strategy": "proposed_dynamic_event_cal",
+          "num_blocks": 180,
+          "block_size": 8000,
+          "raw_bits": 1440000,
+          "emitted_bits": 24428,
+          "certified_bits": 24428,
+          "unsafe_emitted_bits": 0,
+          "stop_blocked_bits": 0,
+          "seed_consumed_bits": 1416254,
+          "seed_refreshed_bits": 404,
+          "seed_final_pool_bits": 2584150,
+          "emitted_rate": 0.01696388888888889,
+          "certified_rate": 0.01696388888888889,
+          "unsafe_emitted_rate": 0.0,
+          "stop_rate": 0.005555555555555556,
+          "unsafe_block_rate": 0.0,
+          "seed_starved_rate": 0.0,
+          "calibration_events": 19,
+          "calibration_applied_events": 19,
+          "mean_h_min": 0.03486013591532484,
+          "mean_omega_high": 0.27705852855393165,
+          "mean_temperature_c": 24.909195200609645
+        }
+      ],
+      "replicate_stats": {
+        "baseline_fixed_no_cal": {
+          "certified_rate": {
+            "mean": 0.0009333333333333334,
+            "std": 0.0005784184482142387,
+            "ci95_half_width": 0.00035850746845536086
+          },
+          "stop_rate": {
+            "mean": 0.02777777777777778,
+            "std": 0.06312615018170115,
+            "ci95_half_width": 0.03912599324043741
+          },
+          "unsafe_block_rate": {
+            "mean": 0.9688888888888888,
+            "std": 0.019280614940474627,
+            "ci95_half_width": 0.011950248948512033
+          },
+          "unsafe_emitted_rate": {
+            "mean": 0.029066666666666668,
+            "std": 0.0005784184482142383,
+            "ci95_half_width": 0.00035850746845536065
+          },
+          "mean_h_min": {
+            "mean": 0.036027817038976395,
+            "std": 0.00388295062462988,
+            "ci95_half_width": 0.002406677731097569
+          },
+          "mean_omega_high": {
+            "mean": 0.247697168996093,
+            "std": 0.0327576827952463,
+            "ci95_half_width": 0.020303422146448733
+          }
+        },
+        "proposed_dynamic_event_cal": {
+          "certified_rate": {
+            "mean": 0.018693402777777778,
+            "std": 0.002466687808594818,
+            "ci95_half_width": 0.0015288689433389012
+          },
+          "stop_rate": {
+            "mean": 0.0016666666666666666,
+            "std": 0.003749714209503072,
+            "ci95_half_width": 0.0023240969454385897
+          },
+          "unsafe_block_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "unsafe_emitted_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95_half_width": 0.0
+          },
+          "mean_h_min": {
+            "mean": 0.03668237278530623,
+            "std": 0.002514730527898673,
+            "ci95_half_width": 0.0015586461292646122
+          },
+          "mean_omega_high": {
+            "mean": 0.2488780038316269,
+            "std": 0.03098205973658327,
+            "ci95_half_width": 0.0192028795727159
+          }
+        }
+      }
+    }
+  ]
+}

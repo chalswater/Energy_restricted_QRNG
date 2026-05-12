@@ -1,0 +1,22 @@
+name: sdi-qrng-chip-sim-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -r sdi_qrng_chip_sim/requirements.txt
+      - name: Generate LUT
+        run: python -m sdi_qrng_chip_sim.lut_generation.generate_lut
+      - name: Run tests
+        run: python -m unittest discover sdi_qrng_chip_sim/tests
+      - name: Smoke simulation
+        run: python -m sdi_qrng_chip_sim.main --num-blocks 5 --block-size 1000 --no-plots

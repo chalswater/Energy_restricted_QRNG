@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sdi_qrng_chip_sim/patent_figure_summary.schema.json",
+  "title": "SDI QRNG patent figure summary",
+  "type": "object",
+  "required": ["seeds", "figures"],
+  "properties": {
+    "seeds": {
+      "type": "array",
+      "items": { "type": "integer" }
+    },
+    "figures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["figure", "scenario", "description", "config", "summaries", "replicate_stats"],
+        "properties": {
+          "figure": { "type": "string" },
+          "scenario": { "type": "string" },
+          "description": { "type": "string" },
+          "config": { "type": "object" },
+          "summaries": { "type": "array" },
+          "replicate_stats": { "type": "object" }
+        }
+      }
+    }
+  }
+}
+
